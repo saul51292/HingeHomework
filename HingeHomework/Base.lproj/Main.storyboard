@@ -1,25 +1,114 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6211" systemVersion="14A298i" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9532" systemVersion="14F1710" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="gUd-oq-s0U">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6204"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9530"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
-        <scene sceneID="tne-QT-ifu">
+        <!--Navigation Controller-->
+        <scene sceneID="JUk-pX-bQy">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModuleProvider="target" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
-                        <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                <navigationController id="gUd-oq-s0U" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="sho-KR-A7h">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <toolbar key="toolbar" opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="dBG-M8-VAG">
+                        <rect key="frame" x="0.0" y="556" width="600" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </toolbar>
+                    <connections>
+                        <segue destination="ce2-pc-AEN" kind="relationship" relationship="rootViewController" id="l99-1V-hib"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="13o-P6-DfI" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1218" y="265"/>
+        </scene>
+        <!--Image CollectionVC-->
+        <scene sceneID="ZfC-9B-Cax">
+            <objects>
+                <collectionViewController id="ce2-pc-AEN" customClass="ImageCollectionVC" customModule="HingeHomework" customModuleProvider="target" sceneMemberID="viewController">
+                    <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" id="Rfu-xu-gc2">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
-                    </view>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+                        <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                        <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="20" minimumInteritemSpacing="5" id="ABr-mm-mhe">
+                            <size key="itemSize" width="160" height="160"/>
+                            <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                            <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                            <inset key="sectionInset" minX="20" minY="30" maxX="20" maxY="30"/>
+                        </collectionViewFlowLayout>
+                        <cells>
+                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="Thumbnail" id="ufP-Un-6Kj" customClass="ThumbnailCell" customModule="HingeHomework" customModuleProvider="target">
+                                <rect key="frame" x="20" y="94" width="160" height="160"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                                    <rect key="frame" x="0.0" y="0.0" width="160" height="160"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                </view>
+                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                <connections>
+                                    <segue destination="L0p-Ae-0pt" kind="show" identifier="goToImageView" id="NI4-PF-IbT"/>
+                                </connections>
+                            </collectionViewCell>
+                        </cells>
+                        <connections>
+                            <outlet property="dataSource" destination="ce2-pc-AEN" id="Zeb-R6-0bx"/>
+                            <outlet property="delegate" destination="ce2-pc-AEN" id="RME-Fl-dXo"/>
+                        </connections>
+                    </collectionView>
+                    <navigationItem key="navigationItem" id="But-DO-Hse"/>
+                </collectionViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="xyY-TX-lI1" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="-522" y="265"/>
+        </scene>
+        <!--ImageVC-->
+        <scene sceneID="pF4-yS-REe">
+            <objects>
+                <viewController id="L0p-Ae-0pt" customClass="ImageVC" customModule="HingeHomework" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="1Zr-YI-fst"/>
+                        <viewControllerLayoutGuide type="bottom" id="ZCt-wY-1gc"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="0k7-Zu-RGM">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" animating="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="4He-Oc-UfI">
+                                <rect key="frame" x="282" y="281" width="37" height="37"/>
+                                <color key="color" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                            </activityIndicatorView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="i4s-JG-SrF">
+                                <rect key="frame" x="0.0" y="140" width="600" height="320"/>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="i4s-JG-SrF" firstAttribute="top" secondItem="1Zr-YI-fst" secondAttribute="bottom" constant="76" id="169-T4-Bae"/>
+                            <constraint firstItem="4He-Oc-UfI" firstAttribute="centerY" secondItem="i4s-JG-SrF" secondAttribute="centerY" id="Tre-xD-b2B"/>
+                            <constraint firstItem="i4s-JG-SrF" firstAttribute="top" secondItem="1Zr-YI-fst" secondAttribute="bottom" constant="76" id="aCc-om-57o"/>
+                            <constraint firstItem="4He-Oc-UfI" firstAttribute="centerX" secondItem="i4s-JG-SrF" secondAttribute="centerX" id="e2P-B2-eQO"/>
+                            <constraint firstItem="i4s-JG-SrF" firstAttribute="leading" secondItem="0k7-Zu-RGM" secondAttribute="leading" id="iiT-Rh-4mv"/>
+                            <constraint firstItem="i4s-JG-SrF" firstAttribute="centerY" secondItem="0k7-Zu-RGM" secondAttribute="centerY" id="tCA-Fm-SQ0"/>
+                            <constraint firstAttribute="trailing" secondItem="i4s-JG-SrF" secondAttribute="trailing" id="tXv-Xc-BD3"/>
+                        </constraints>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="aCc-om-57o"/>
+                            </mask>
+                        </variation>
+                    </view>
+                    <connections>
+                        <outlet property="activityIndicator" destination="4He-Oc-UfI" id="tsl-8t-aQ4"/>
+                        <outlet property="mainImageView" destination="i4s-JG-SrF" id="Trt-JO-YHI"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="gWY-yJ-YtH" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="200" y="265"/>
         </scene>
     </scenes>
 </document>

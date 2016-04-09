@@ -12,10 +12,16 @@ import UIKit
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
-
+    let style = StyleManager()
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         // Override point for customization after application launch.
+        
+        // Initial App Styling
+        
+        let navigationController = application.windows[0].rootViewController as! UINavigationController
+        style.styleNavigationBar(navigationController)
+        UIApplication.sharedApplication().statusBarStyle = .LightContent
         return true
     }
 
